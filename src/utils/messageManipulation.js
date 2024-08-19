@@ -5,6 +5,17 @@ exports.addGuildName = (name, message) => {
   if (name) message.content = `## ${name}:\n${message.content}`;
 };
 
+exports.removeWebLinks = (remove, message) => {
+  if (!remove) return;
+  // Regular expression to match URLs
+  const urlPattern = /https?:\/\/[^\s]+/g;
+
+  // Replace URLs with an empty string
+  const cleanedMessage = message.content.replace(urlPattern, "");
+
+  message.content = cleanedMessage.trim();
+};
+
 exports.removeInviteLinks = (remove_discord_links, message) => {
   if (!remove_discord_links) return;
   const discordInviteRegex =
