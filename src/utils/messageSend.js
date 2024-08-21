@@ -10,6 +10,7 @@ const sendWebhook = async (message, data) => {
 
   const updatedEmbeds = embeds.map((e) => {
     e.title = null;
+    e.footer = null;
     return e;
   });
   const reply = {
