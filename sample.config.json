@@ -27,6 +27,7 @@
       "channel_id": "1170066899934130197",
       "webhook_url": "https://discord.com/api/webhooks/dummy/dummy",
       "MESSAGE_DELAY_SECOND": 1,
+      "custom_footer": "hello",
 
       "remove_unknown_users": true,
       "use_chatgpt_conversion": true,
