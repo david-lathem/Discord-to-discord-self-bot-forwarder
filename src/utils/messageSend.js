@@ -6,11 +6,11 @@ const sendWebhook = async (message, data) => {
     attachments,
     embeds,
   } = message;
-  const { webhook, custom_names, use_user_profile } = data;
+  const { webhook, custom_names, use_user_profile, custom_footer } = data;
 
   const updatedEmbeds = embeds.map((e) => {
     e.title = null;
-    e.footer = null;
+    e.footer = { text: custom_footer } ?? null;
     return e;
   });
   const reply = {

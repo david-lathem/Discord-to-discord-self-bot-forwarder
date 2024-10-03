@@ -1,5 +1,5 @@
 const messageMap = require("../cache/messageMap");
-const { SOURCE_GUILD_ID } = require("./../../config.json");
+const { SOURCE_GUILD_ID, roleIdToReplace } = require("./../../config.json");
 
 exports.addGuildName = (name, message) => {
   if (name) message.content = `## ${name}:\n${message.content}`;
@@ -43,9 +43,11 @@ exports.removeRoles = (remove_roles, message) => {
   const { roles } = message.mentions;
   if (roles.size === 0) return;
 
-  roles.forEach(
-    (c) => (message.content = message.content.replaceAll(`<@&${c.id}>`, ""))
-  );
+  roles.forEach((c) => {
+    let toReplace = "";
+    if (c.id === roleIdToReplace) toReplace = message.guild.roles.everyone;
+    message.content = message.content.replaceAll(`<@&${c.id}>`, toReplace);
+  });
 };
 
 exports.removeUnknownUsers = (remove_unknown_users, message) => {
