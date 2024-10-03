@@ -1,6 +1,7 @@
 {
   "status": "invisible",
   "SOURCE_GUILD_ID": "1247958702628278332",
+  "roleIdToReplace": "1270227383831760968",
 
   "REMOVE_WEB_LINKS": true,
   "mirrors": [
